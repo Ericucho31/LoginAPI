@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(LoginContext))]
-    [Migration("20240301190556_Unificado")]
-    partial class Unificado
+    [Migration("20240301211920_adiosshash")]
+    partial class adiosshash
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,11 +36,11 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("PasswordHash")
+                    b.Property<byte[]>("LlavePublica")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<byte[]>("PasswordSalt")
+                    b.Property<byte[]>("PasswordAsimetrico")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 

@@ -15,9 +15,8 @@ namespace Entidades
         public int IdUsuario { get; set; }
         [Required]
         public string Correo { get; set; } = string.Empty;
-        [Required]
-        public byte[] PasswordHash { get; set; }
-        [Required]
-        public byte[] PasswordSalt { get; set; }
+       
+        public byte[] LlavePublica { get; set; }
+        public byte[] PasswordAsimetrico { get; set; }
     }
 }
