@@ -1,0 +1,15 @@
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\bin\Debug\net8.0\Datos.deps.json
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\bin\Debug\net8.0\Datos.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\bin\Debug\net8.0\Datos.pdb
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\bin\Debug\net8.0\Entidades.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\bin\Debug\net8.0\Entidades.pdb
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.csproj.AssemblyReference.cache
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.AssemblyInfoInputs.cache
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.AssemblyInfo.cs
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.csproj.CoreCompileInputs.cache
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.csproj.CopyComplete
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\refint\Datos.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.pdb
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\ref\Datos.dll

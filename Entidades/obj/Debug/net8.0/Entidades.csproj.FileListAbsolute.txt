@@ -1,0 +1,11 @@
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\bin\Debug\net8.0\Entidades.deps.json
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\bin\Debug\net8.0\Entidades.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\bin\Debug\net8.0\Entidades.pdb
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.AssemblyInfoInputs.cache
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.AssemblyInfo.cs
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\refint\Entidades.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.pdb
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\ref\Entidades.dll
