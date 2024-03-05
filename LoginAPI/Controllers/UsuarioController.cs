@@ -15,6 +15,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Text.Json;
+using LoginAPI.Models;
 
 namespace LoginAPI.Controllers
 {
@@ -115,49 +116,13 @@ namespace LoginAPI.Controllers
             return _context.Usuario.Any(e => e.IdUsuario == id);
         }
 
-        // METODO CREAR PASSWORD//**********************************************************************************
-        public static void CreaPassword(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
-        }
-
-        // METODO CREAR PASSWORD ASIMÉTRICO//**********************************************************************************
-        public static byte[] EncriptarConLlavePublica(string password, RSAParameters publicKey)
-        {
-            using (RSA rsa = RSA.Create())
-            {
-                rsa.ImportParameters(publicKey);
-                byte[] encryptedData = rsa.Encrypt(Encoding.UTF8.GetBytes(password), RSAEncryptionPadding.OaepSHA256);
-                return encryptedData;
-            }
-        }
-
-        public static string Desencriptar(byte[] encryptedData, RSAParameters privateKey)
-        {
-            using (RSA rsa = RSA.Create())
-            {
-                rsa.ImportParameters(privateKey);
-                byte[] decryptedData = rsa.Decrypt(encryptedData, RSAEncryptionPadding.OaepSHA256);
-                string decryptedPassword = Encoding.UTF8.GetString(decryptedData);
-                return decryptedPassword;
-            }
-        }
 
         // METODO INSERTAR USUARIO ASIMETRICO//**********************************************************************************
         [HttpPost("[action]")]
         public async Task<IActionResult> CrearUsuarioAsimetrico(InsertarUsuarioViewModel modelUsuario)
         {
-            RSAParameters publicKey;
-            RSAParameters privateKey;
-            using (RSA rsa = RSA.Create())
-            {
-                publicKey = rsa.ExportParameters(false);
-                privateKey = rsa.ExportParameters(true);
-            }
+            EncriptacionRSA rsa = new EncriptacionRSA();
+            char[] mensajeDividido = modelUsuario.Password.ToCharArray();
 
             if (!ModelState.IsValid)
             {
@@ -168,8 +133,7 @@ namespace LoginAPI.Controllers
                 return Problem("Entity set 'DBContextSistema.Usuarios'  is null.");
             }
 
-            byte[] passwordEncriptado = EncriptarConLlavePublica( modelUsuario.Password, publicKey);
-            byte[] publicKeyBytes = JsonSerializer.SerializeToUtf8Bytes(publicKey);
+            string PasswordEncriptada = rsa.Encriptacion(mensajeDividido);
 
             var email = modelUsuario.Email.ToUpper();
             if (await _context.Usuario.AnyAsync(u => u.Correo == email))
@@ -179,8 +143,8 @@ namespace LoginAPI.Controllers
             Usuario usuario = new Usuario
             {
                 Correo = modelUsuario.Email,
-                PasswordAsimetrico = passwordEncriptado,
-                LlavePublica = publicKeyBytes
+                PasswordAsimetrico = PasswordEncriptada,
+                LlavePublica = "hola"
             };
 
             _context.Usuario.Add(usuario);
@@ -194,65 +158,20 @@ namespace LoginAPI.Controllers
                 var inner = e.InnerException;
                 return BadRequest();
             }
-            return Ok(new { confirmacion = "Esta es tu llave privada, no se la digas a nadie" + privateKey.ToString() } );
+            return Ok(new { confirmacion = "Contrasena encriptada" + PasswordEncriptada });
         }
 
-        // METODO INSERTAR USUARIO//**********************************************************************************
-        [HttpPost("[action]")]
-        public async Task<IActionResult> InsertarUsuarios(InsertarUsuarioViewModel modelUsuario)
+        private bool ComprobarPassword( string passwordIngresada, string passwordEncriptada)
         {
-            RSAParameters publicKey;
-            RSAParameters privateKey;
-            using (RSA rsa = RSA.Create())
+            EncriptacionRSA rsa = new EncriptacionRSA();
+            if(passwordIngresada == rsa.Desencriptacion(passwordEncriptada))
             {
-                publicKey = rsa.ExportParameters(false);
-                privateKey = rsa.ExportParameters(true);
+                return true;
             }
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            if (_context.Usuario == null)
-            {
-                return Problem("Entity set 'DBContextSistema.Usuarios'  is null.");
-            }
-
-            CreaPassword(modelUsuario.Password, out byte[] passwordHash, out byte[] passwordSalt);
-
-            var email = modelUsuario.Email.ToUpper();
-            if (await _context.Usuario.AnyAsync(u => u.Correo == email))
-            {
-                return BadRequest("El Email de este usuario ya existe"); //Función para validar que no se repita un Email
-            }
-            Usuario usuario = new Usuario
-            {
-                Correo = modelUsuario.Email,
-                //PasswordHash = passwordHash,
-                //PasswordSalt = passwordSalt
-            };
-            _context.Usuario.Add(usuario);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception e)
-            {
-                string Error = e.Message;
-                var inner = e.InnerException;
-                return BadRequest();
-            }
-            return Ok();
+            
+            return false;
         }
-
-        private bool VerificaPassword(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
-            {
-                var nuevoPasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                return new ReadOnlySpan<byte>(passwordHash).SequenceEqual(new ReadOnlySpan<byte>(nuevoPasswordHash));
-            }
-        }
+        
 
         [HttpPost("[action]")]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -262,9 +181,8 @@ namespace LoginAPI.Controllers
 
             if (usuario == null) { return NotFound(); }
 
-            //var IsValido = VerificaPassword(model.Password, usuario.PasswordHash, usuario.PasswordSalt);
-
-            //if (!IsValido) { return BadRequest(); }
+            var IsValido = ComprobarPassword(model.Password, usuario.PasswordAsimetrico);
+            if (!IsValido) { return BadRequest(); }
 
             return Ok(
                 new { confirmacion = "Si eres tu" }

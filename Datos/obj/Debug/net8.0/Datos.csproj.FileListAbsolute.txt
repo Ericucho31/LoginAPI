@@ -13,3 +13,4 @@ C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\refint\Datos.dll
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.pdb
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\ref\Datos.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Datos\obj\Debug\net8.0\Datos.sourcelink.json

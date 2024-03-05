@@ -16,7 +16,7 @@ namespace Entidades
         [Required]
         public string Correo { get; set; } = string.Empty;
        
-        public byte[] LlavePublica { get; set; }
-        public byte[] PasswordAsimetrico { get; set; }
+        public string LlavePublica { get; set; }
+        public string PasswordAsimetrico { get; set; }
     }
 }

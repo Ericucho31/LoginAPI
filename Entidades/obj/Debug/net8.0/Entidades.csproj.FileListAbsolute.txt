@@ -9,3 +9,4 @@ C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\E
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\refint\Entidades.dll
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.pdb
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\ref\Entidades.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\Entidades\obj\Debug\net8.0\Entidades.sourcelink.json
