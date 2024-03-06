@@ -42,13 +42,18 @@ function CrearUsuario() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <div>{error}</div>}
-      {confirmacion && <div>{confirmacion}</div>}
-      <input type="text" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">Iniciar sesión</button>
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      {error && <div class="text-red-700 font-bold text-sm" >{error}</div>}
+      {confirmacion && <div class="text-blue-700 font-bold text-md">{confirmacion}</div>}
+      <div class="w-full max-w-xs">
+        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+      
+        <button type="submit" class="text-white-700 font-bold bg-blue-500 border rounded py-2 px-4 ">Iniciar sesión</button>
+      </div>
     </form>
+
+
   );
 }
 

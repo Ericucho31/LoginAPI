@@ -12,8 +12,6 @@ function App() {
         <LoginForm></LoginForm>
         <p>Crear cuenta</p>
         <CrearUsuario></CrearUsuario>
-
-        <LoginBonito></LoginBonito>
         
       </header>
     </div>
