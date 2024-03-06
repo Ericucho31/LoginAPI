@@ -144,7 +144,7 @@ namespace LoginAPI.Controllers
             {
                 Correo = modelUsuario.Email,
                 PasswordAsimetrico = PasswordEncriptada,
-                LlavePublica = "hola"
+                LlavePublica = "5",
             };
 
             _context.Usuario.Add(usuario);
@@ -161,10 +161,10 @@ namespace LoginAPI.Controllers
             return Ok(new { confirmacion = "Contrasena encriptada" + PasswordEncriptada });
         }
 
-        private bool ComprobarPassword( string passwordIngresada, string passwordEncriptada)
+        private bool ComprobarPassword( string passwordIngresada, string passwordEncriptada, int privateKey)
         {
             EncriptacionRSA rsa = new EncriptacionRSA();
-            if(passwordIngresada == rsa.Desencriptacion(passwordEncriptada))
+            if(passwordIngresada == rsa.Desencriptacion(passwordEncriptada, privateKey))
             {
                 return true;
             }
@@ -181,8 +181,8 @@ namespace LoginAPI.Controllers
 
             if (usuario == null) { return NotFound(); }
 
-            var IsValido = ComprobarPassword(model.Password, usuario.PasswordAsimetrico);
-            if (!IsValido) { return BadRequest(); }
+            var IsValido = ComprobarPassword(model.Password, usuario.PasswordAsimetrico, model.PrivateKey);
+            if (!IsValido) { return BadRequest("La contraseña o llave privada son incorrectas"); }
 
             return Ok(
                 new { confirmacion = "Si eres tu" }

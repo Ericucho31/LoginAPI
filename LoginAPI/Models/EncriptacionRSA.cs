@@ -92,14 +92,14 @@ public class EncriptacionRSA
         return numerosString;
     }
 
-    public  string Desencriptacion(string passwordEncriptado)
+    public  string Desencriptacion(string passwordEncriptado, int privateKey)
     {
         int[] arregloEncriptado = StringToIntArray(passwordEncriptado);
         char[] arregloDesencriptado = new char[arregloEncriptado.Length];
         for (int i = 0; i < arregloEncriptado.Length; i++)
         {
             // Descifrado RSA
-            BigInteger mensajeDescifrado = BigInteger.ModPow(arregloEncriptado[i], d, n);
+            BigInteger mensajeDescifrado = BigInteger.ModPow(arregloEncriptado[i], privateKey, n);
             arregloDesencriptado[i]= (char)mensajeDescifrado;
         }
         string mensajeDesencriptado = new string(arregloDesencriptado);

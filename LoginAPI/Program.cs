@@ -14,6 +14,18 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("LoginConnection");
 builder.Services.AddDbContext<LoginContext>(options => { options.UseSqlServer(connectionString); });
 
+builder.Services.AddCors( option =>
+{
+    //react
+    option.AddPolicy("reactApp", policyBuilder =>
+    {
+        policyBuilder.AllowAnyOrigin();
+        policyBuilder.AllowAnyHeader();
+        policyBuilder.AllowAnyMethod();
+
+    });
+});
+
 
 var app = builder.Build();
 
@@ -31,6 +43,7 @@ using (var scope = app.Services.CreateScope())
         app.UseSwaggerUI();
     }
 
+    app.UseCors("reactApp");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
