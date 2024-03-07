@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import LoginForm from './componentes/Login';
 import CrearUsuario from './componentes/CrearUsuario';
-import LoginBonito from './componentes/LoginBonito';
 
 function App() {
   return (

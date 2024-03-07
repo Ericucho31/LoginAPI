@@ -122,7 +122,6 @@ namespace LoginAPI.Controllers
         public async Task<IActionResult> CrearUsuarioAsimetrico(InsertarUsuarioViewModel modelUsuario)
         {
             EncriptacionRSA rsa = new EncriptacionRSA();
-            char[] mensajeDividido = modelUsuario.Password.ToCharArray();
 
             if (!ModelState.IsValid)
             {
@@ -133,7 +132,7 @@ namespace LoginAPI.Controllers
                 return Problem("Entity set 'DBContextSistema.Usuarios'  is null.");
             }
 
-            string PasswordEncriptada = rsa.Encriptacion(mensajeDividido);
+            string PasswordEncriptada = rsa.Encriptacion(modelUsuario.Password);
 
             var email = modelUsuario.Email.ToUpper();
             if (await _context.Usuario.AnyAsync(u => u.Correo == email))

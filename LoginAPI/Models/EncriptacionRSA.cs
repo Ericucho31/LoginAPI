@@ -4,8 +4,6 @@ using System.Security.Cryptography.X509Certificates;
 
 public class EncriptacionRSA
 {
-    private static Random random = new Random();
-    // Declaracion de variables de RSA
     public static BigInteger p { get; set; }
     public static BigInteger q { get; set; }
     public static BigInteger n { get; set; }
@@ -21,8 +19,7 @@ public class EncriptacionRSA
         phi = (p - 1) * (q - 1);
         e = GenerateE(phi);
         d = ModInverse(e, phi);
-}
-   
+    }
 
     // Función para generar un valor e coprimo con phi
     private static BigInteger GenerateE(BigInteger phi)
@@ -30,7 +27,7 @@ public class EncriptacionRSA
         BigInteger e = 3; // Empezar con un valor pequeño para e
         while (BigInteger.GreatestCommonDivisor(e, phi) != 1)
         {
-            e += 2; // Incrementar e hasta que sea coprimo con phi
+            e += 2; 
         }
         return e;
     }
@@ -73,23 +70,22 @@ public class EncriptacionRSA
         return intArray;
     }
 
-    public string Encriptacion(char[] mensajeDividido)
+    public string Encriptacion(string mensajeOriginal)
     {
-        int[] arregloDeNumeros = new int[mensajeDividido.Length];
+        char[] mensajeDividido = mensajeOriginal.ToCharArray();
+        int[] valoresASCII = new int[mensajeDividido.Length];
         int[] arregloEncriptado = new int[mensajeDividido.Length];
 
         for (int i = 0; i < mensajeDividido.Length; i++)
         {
-            arregloDeNumeros[i] = (int)mensajeDividido[i];
-            Console.WriteLine("El valor ascii de la letra es : " + arregloDeNumeros[i]);
+            valoresASCII[i] = (int)mensajeDividido[i];
 
-            BigInteger mensajeCifrado = BigInteger.ModPow(arregloDeNumeros[i], e, n);
-            Console.WriteLine("Mensaje cifrado:" + mensajeCifrado);
+            BigInteger valorCifrado = BigInteger.ModPow(valoresASCII[i], e, n);
 
-            arregloEncriptado[i] = (int)mensajeCifrado;
+            arregloEncriptado[i] = (int)valorCifrado;
         }
-        string numerosString = string.Join(",", arregloEncriptado);
-        return numerosString;
+        string mensajeCifrado = string.Join(",", arregloEncriptado);
+        return mensajeCifrado;
     }
 
     public  string Desencriptacion(string passwordEncriptado, int privateKey)
