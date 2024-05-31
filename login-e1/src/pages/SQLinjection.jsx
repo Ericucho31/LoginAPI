@@ -1,45 +1,45 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const SQL = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
-    const [link, setLink] = useState('')
+  const handleSearch = () => {
+    // Simulación de inyección SQL (no lo hagas en un entorno de producción)
+    const query = `SELECT * FROM Users WHERE username LIKE '%${searchTerm}%';`;
 
-    useEffect(() => {
-        const apiKey = 'c6a11324-7324-47a2-87c2-dbf6e058b3fc';
-        const email = 'kyshon.stan@dockleafs.com'
-        const options = { method: 'GET', headers: { accept: 'application/json' } };
-    
-        // Define la función de búsqueda dentro del useEffect
-        const fetchingLink = async () => {
-          try {
-            const response = await axios.get(`https://caniphish.com/ManagementAPI/GetPhishingWebsites?emailAddress=${email}&apiKey=${apiKey}`);
-            const data = await response.json();
-            setLink(data);
-          } catch (error) {
-            console.error(error);
-          }
-        };
-    
-        // Llama a la función fetchingLink dentro del useEffect
-        fetchingLink();
-    
-        // Asegúrate de añadir apiKey y options como dependencias si son necesarias.
-      }, []); // Las dependencias están vacías para que solo se ejecute una vez al montar el componente.
-    
+    // Ejecutar la "consulta" (simulada)
+    // ¡No ejecutes consultas SQL reales de esta manera en una aplicación real!
+    // Esta es una simulación con fines educativos solamente.
+    fetch(`/api/search?query=${encodeURIComponent(query)}`)
+      .then(response => response.json())
+      .then(data => {
+        setSearchResults(data);
+      })
+      .catch(error => {
+        console.error('Error al ejecutar la consulta:', error);
+      });
+  };
 
-    return (
-        <div>
-            <iframe
-                title="Contenido externo"
-                src={link}
-                width="1529"
-                height="600"
-                frameBorder="0"
-            />
-
-        </div>
-    );
+  return (
+    <div>
+      <h2>Simulador de Inyección SQL (Solo con fines educativos)</h2>
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={e => setSearchTerm(e.target.value)}
+        placeholder="Buscar usuarios"
+      />
+      <button onClick={handleSearch}>Buscar</button>
+      
+      <h3>Resultados de la búsqueda:</h3>
+      <ul>
+        {searchResults.map(user => (
+          <li key={user.id}>{user.username}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default SQL;

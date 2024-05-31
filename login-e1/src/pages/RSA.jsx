@@ -4,7 +4,7 @@ import CrearUsuario from '../componentes/CrearUsuario';
 
 const RSA = () => {
   return (
-    <div >
+    <div className='flex justify-center items-center h-screen' >
       <header>
         <p>Iniciar Sesion</p>
         <LoginForm></LoginForm>
