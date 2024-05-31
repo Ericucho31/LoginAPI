@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html lang="en" class="no-js lower-than-ie9 ie desktop"><![endif]-->
+<!--[if lt IE 10]><html lang="en" class="no-js lower-than-ie10 ie desktop"><![endif]-->
+<!--[if !IE]>-->
+<html lang="en">
+  <!--<![endif]-->
+  <head>
+    <!--Script info: script: node, template:  , date: Nov 21, 2022 01:40:18 -08:00, country: TW, language: en web version:  content version:  hostname : rZJvnqaaQhLn/nmWT8cSUm+72VQ7inHLmNSWW7oQxSqkM7CaNNY3vwwDZDVc+NwN rlogid : rZJvnqaaQhLn%2FnmWT8cSUotSylMGOTGkRUMDpmUTvbXdvevuMMFAfVANbpv53MZEySepZVSpTWRYJ8c9hOdmTcn%2BHSxZ2SMb_184998f5480 -->
+    <meta charset="utf-8">
+    <title>Log in to your PayPal account</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="application-name" content="PayPal">
+    <meta name="msapplication-task" content="name=My Account;action-uri=https://www.paypal.com/us/cgi-bin/webscr?cmd=_account;icon-uri=https://www.paypalobjects.com/en_US/i/icon/pp_favicon_x.ico">
+    <meta name="msapplication-task" content="name=Send Money;action-uri=https://www.paypal.com/us/cgi-bin/webscr?cmd=_send-money-transfer&amp;send_method=domestic;icon-uri=https://www.paypalobjects.com/en_US/i/icon/pp_favicon_x.ico">
+    <meta name="keywords" content="transfer money, email money transfer, international money transfer ">
+    <meta name="description" content="Transfer money online in seconds with PayPal money transfer. All you need is an email address.">
+    <link rel="shortcut icon" href="https://www.paypalobjects.com/en_US/i/icon/pp_favicon_x.ico">
+    <link rel="apple-touch-icon" href="https://www.paypalobjects.com/webstatic/icon/pp64.png">
+    <link rel="canonical" href="https://www.paypal.com/tw/signin">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=2, user-scalable=yes">
+    <meta property="og:image" content="https://www.paypalobjects.com/webstatic/icon/pp258.png">
+    <link rel="stylesheet" href="https://www.paypalobjects.com/web/res/814/0ed5dab5e678c14296dd49b2a68b4/css/contextualLoginElementalUIv2.css">
+    <style>/** method responsible for loading the background image set in CSS **/
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes rotation {
+  from {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.country-selector .country {
+  overflow: hidden;
+  height: 24px;
+  min-width: 32px;
+  background: transparent url(https://www.paypalobjects.com/webstatic/mktg/icons/sprite_countries_flag4.png) 5px 100px no-repeat;
+  border: none;
+  text-align: left;
+}
+.country-selector ul li {
+  list-style: none;
+  width: 19%;
+  display: inline-block;
+  line-height: 1.5rem;
+  min-height: 3em;
+}
+.country-selector ul li a.country {
+  padding: 3px 10px 0 35px;
+  overflow: visible;
+  line-height: 1.2em;
+  display: block;
+  height: 30px;
+  min-width: 30px;
+  color: #777;
+  font-weight: 400;
+  font-size: .9375rem;
+}
+.country-selector .priorityCountries {
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 20px;
+}
+
+.country-selector .mexico,
+.country-selector .MX {
+  background-position: 5px -2414px;
+}
+
+@media all and (max-width: 767px) {
+  .country-selector ul li {
+    display: block;
+    width: 100%;
+  }
+  .priorityCountries span::before {
+    font-size: 3em;
+    float: right;
+    padding-right: 10px;
+  }
+}
+ul.priorityCountries li:first-child a:visited,
+ul.priorityCountries li:first-child a:hover {
+  text-decoration: none;
+}
+@media all and (min-width: 768px) {
+  .priorityCountries span::before {
+    content: none;
+  }
+}
+.countryListModal {
+  position: absolute;
+  top: 100%;
+  transition: all 0.3s ease-out;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #ffffff;
+  z-index: 999999;
+  opacity: 1;
+}
+.countryListModal.transitionUp {
+  top: 0;
+}
+.countryListModal .wrapper {
+  margin: 0 auto;
+  width: 70%;
+}
+@media all and (max-width: 767px) {
+  .countryListModal .wrapper {
+    width: 100%;
+  }
+}
+.countryListModal .buttonHolder {
+  min-height: 7rem;
+  position: fixed;
+  width: 70%;
+}
+.countryListModal .ghostElement {
+  /* hides behind fixed button holder */
+  height: 7rem;
+}
+.countryListModal .modalContent {
+  padding-left: 10px;
+}
+@media all and (max-width: 767px) {
+  .countryListModal .buttonHolder {
+    min-height: 5rem;
+    width: 100%;
+  }
+  .countryListModal .ghostElement {
+    height: 5rem;
+  }
+  .countryListModal .closeModal::before {
+    /* to align with the selector icon */
+    padding-right: 20px;
+  }
+}
+.countryListModal .closeModal {
+  background: none;
+  border: none;
+  padding: 0 4px 0;
+  float: right;
+  color: #2c2e2f;
+  cursor: pointer;
+  height: 40px;
+  font-size: 2em;
+}
+.countryListModal .paypalIcon {
+  background: url(https://www.paypalobjects.com/webstatic/i/consumer/onboarding/icon_PP_monogram_2x.png) center 14px no-repeat #ffffff;
+  background-size: 20px;
+}
+.picker.country-selector {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.picker.country-selector button {
+  display: inline-block;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.picker.country-selector button::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  height: 8px;
+  width: 8px;
+  left: 30px;
+  margin: 8px 0 0 8px;
+  border-color: #333;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+</style>
+  </head>
+  <body class="desktop" data-rlogid="rZJvnqaaQhLn%2FnmWT8cSUotSylMGOTGkRUMDpmUTvbXdvevuMMFAfVANbpv53MZEySepZVSpTWRYJ8c9hOdmTcn%2BHSxZ2SMb_184998f5480" data-hostname="rZJvnqaaQhLn/nmWT8cSUm+72VQ7inHLmNSWW7oQxSqkM7CaNNY3vwwDZDVc+NwN" data-production="true" data-enable-ads-captcha="true" data-ads-challenge-url="/auth/createchallenge/3a683b092239e6c4/challenge.js" data-enable-client-cal-logging="true" data-correlation-id="f648376aa4f45" data-enable-fn-beacon-on-web-views="true" data-phone-password-enabled="true" data-is-hybrid-login-experience="true" data-is-hybrid-editable-on-cookied="true" data-phone-code="TW +886" data-csrf-token="7WFjRrsqbwhgISwG26S7F7nw277oujIgWiv4w=" data-nonce="8W5+8g/XL2b+uZ3YneCvf78kyJH6psLgclu6PZVHWva1RFjO" data-lazy-load-country-codes="true" data-party-id-hash="920eafc0b648a8127179afe8904bd221a21368116839603f85c8b9d420391d41" data-show-country-drop-down="true" data-otp-login-on-pwd-page-enabled="true" data-otp-login-eligible="true" data-otp-login-integration-type="via_button" data-email-label="Email address" data-xhr-timeout-limit="20000" data-load-start-time="1669023618176" data-is-cookied-user="true" data-xhr-timeout-ineligible-list="MSIE 10|Windows NT 10" data-otp-cookied-auto-send="true" data-otp-variant="autoSendOtp" data-show-try-another-way="true">
+    <noscript>
+      <p class="nonjsAlert" role="alert">Note: Many features on the PayPal website require JavaScript and cookies.</p>
+    </noscript>
+    <div id="main" class="main" role="main">
+      <section id="login" class="login   " data-role="page" data-title="Log in to your PayPal account">
+        <div class="corral">
+          <div id="content" class="contentContainer   activeContent contentContainerBordered contentContainerBordered">
+            <header id="header" class="logo-with-cart">
+              <p role="img" aria-label="PayPal Logo" class="paypal-logo paypal-logo-long"></p>
+              <span class="cartWrapper">
+                <span class="cart">
+                  <span class="cartIcon"></span>
+                  <span class="ltrDisplay">$&nbsp;5.00&nbsp;USD</span>
+                </span>
+              </span>
+            </header>
+            <h1 id="headerText" class="headerText  headerTextWithoutSeparator">Pay with PayPal</h1>
+            <p id="emailSubTagLine" class="subHeaderText hide">Enter your email address to get started.</p>
+            <p id="phoneSubTagLine" class="subHeaderText hide">Already set up to use your mobile number to log in? Type it below. Otherwise, click the link to log in with email.</p>
+            <p id="subTagLineConnectOtp" class="subHeaderText hide">Forgot your email address? Go to the PayPal website to recover it.</p>
+            <p id="pwdSubTagLine" class="subHeaderText ">With a PayPal account, you're eligible for Purchase Protection and Rewards.</p>
+            <div class="notifications"></div>
+            <div id="keychainErrorMessage" class="hide">
+              <p class="notification notification-warning blocked-on-8ball hide">PayPal One Touch™ only works for checkout. Please login with your email.</p>
+              <p class="notification notification-warning blocked-on-risky-login hide">Please login with your email and password.</p>
+              <p class="notification notification-critical keychain-activation-failure hide">Something went wrong on our end. Please login with your email and password.</p>
+            </div>
+            <form action="/signin?intent=checkout&amp;ctxId=xo_ctx_3WE90802EU513441D&amp;returnUri=%2Fwebapps%2Fhermes&amp;state=%3Fflow%3D1-P%26ulReturn%3Dtrue%26token%3D3WE90802EU513441D%26useraction%3Dcommit%26rm%3D2%26mfid%3D1669023463964_f8023377eed03%26rcache%3D1%26cookieBannerVariant%3D1%26targetService4174%3Dhermesnodeweb&amp;flowId=3WE90802EU513441D&amp;country.x=TW&amp;locale.x=en_US" method="post" class="proceed maskable" autocomplete="off" name="login" novalidate="">
+              <input type="hidden" id="token" name="_csrf" value="7WFjRrsqbwhgISwG26S7F7nw277oujIgWiv4w=">
+              <input type="hidden" id="session" name="_sessionID" value="W4hr4Ml21QLr6LA16zuBgcrRJ4xRv-jc">
+              <input type="hidden" name="locale.x" value="en_US">
+              <input type="hidden" name="processSignin" value="main">
+              <input type="hidden" name="legalCountry" value="CA">
+              <input type="hidden" name="fn_sync_data" value="fn_sync_data">
+              <input type="hidden" name="otpMayflyKey" value="2520bbcd182f47d7b898f23451a21e98otpChlg">
+              <input type="hidden" name="intent" value="checkout">
+              <input type="hidden" name="ads-client-context" value="checkout">
+              <input type="hidden" name="flowId" value="3WE90802EU513441D">
+              <input type="hidden" name="ads-client-context-data" value="{&quot;context_id&quot;:{&quot;context_id&quot;:&quot;3WE90802EU513441D&quot;,&quot;channel&quot;:0,&quot;flow_type&quot;:&quot;checkout&quot;}}">
+              <input type="hidden" name="ctxId" value="xo_ctx_3WE90802EU513441D">
+              <input type="hidden" name="isValidCtxId" value="true">
+              <input type="hidden" name="coBrand" value="tw">
+              <input type="hidden" name="signUpEndPoint" value="/webapps/mpp/account-selection">
+              <input type="hidden" name="langTgl" value="en">
+              <input type="hidden" name="showCountryDropDown" value="true">
+              <input type="hidden" name="hideOtpLoginCredentials" value="true">
+              <input type="hidden" name="requestUrl" value="/signin?intent=checkout&amp;ctxId=xo_ctx_3WE90802EU513441D&amp;returnUri=%2Fwebapps%2Fhermes&amp;state=%3Fflow%3D1-P%26ulReturn%3Dtrue%26token%3D3WE90802EU513441D%26useraction%3Dcommit%26rm%3D2%26mfid%3D1669023463964_f8023377eed03%26rcache%3D1%26cookieBannerVariant%3D1%26targetService4174%3Dhermesnodeweb&amp;flowId=3WE90802EU513441D&amp;country.x=TW&amp;locale.x=en_US">
+              <input type="hidden" name="forcePhonePasswordOptIn" value="">
+              <input type="hidden" name="returnUri" value="/webapps/hermes">
+              <input type="hidden" name="state" value="?flow=1-P&amp;ulReturn=true&amp;token=3WE90802EU513441D&amp;useraction=commit&amp;rm=2&amp;mfid=1669023463964_f8023377eed03&amp;rcache=1&amp;cookieBannerVariant=1&amp;targetService4174=hermesnodeweb">
+              <div id="passwordSection" class="clearfix splitEmail">
+                <div id="splitEmailSection" class="splitPhoneSection splitEmailSection">
+                  <div class="countryPhoneSelectWrapper hide">
+                    <label class="accessAid" for="phoneCode">Choose your phone country code</label>
+                    <select name="phoneCode" id="phoneCode" class="countryPhoneSelect">
+                      
+                      <option value="MX +52" data-code="+52" data-country="MX">Mexico (+52)</option>
+                      
+                    </select>
+                    <div class="countryPhoneSelectChoice">
+                      <span class="countryCode">TW</span>
+                      <span class="phoneCode">+886</span>
+                    </div>
+                  </div>
+                  <div class="textInput" id="login_emaildiv" style="z-index: 1;">
+                    <div class="fieldWrapper">
+                      <input id="email" name="login_email" type="email" class="hasHelp  validate validateEmpty   " required="required" autocomplete="username" placeholder="Email or mobile number" aria-describedby="emailErrorMessage">
+                      <label for="email" class="fieldLabel">Email or mobile number</label>
+                    </div>
+                    <div class="errorMessage" id="emailErrorMessage">
+                      <p class="emptyError hide">Required</p>
+                      <p class="invalidError hide">That email or mobile number format isn’t right</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="passwordSection" class="clearfix showHideButtonForEligibleBrowser">
+                  <div class="textInput " id="login_passworddiv" style="z-index: 1;">
+                    <div class="fieldWrapper">
+                      <input id="password" name="login_password" type="password" class="hasHelp  validateEmpty   pin-password" required="required" value="" placeholder="Password" aria-describedby="passwordErrorMessage">
+                      <label for="password" class="fieldLabel">Password</label>
+                      <label for="Show password" class="fieldLabel">Show password</label>
+                      <button type="button" class="showPassword show-hide-password scTrack:unifiedlogin-show-password hide" id="Show password" pa-marked="1">Show</button>
+                      <label for="Hide" class="fieldLabel">Hide</label>
+                      <button type="button" class="hidePassword hide show-hide-password scTrack:unifiedlogin-hide-password" id="Hide" pa-marked="1">Hide</button>
+                    </div>
+                    <div class="errorMessage" id="passwordErrorMessage">
+                      <p class="emptyError hide">Required</p>
+                    </div>
+                  </div>
+                  <a href="#" id="forgotPassword" class="recoveryOption forgotPassword" data-client-log-action-type="clickForgotPasswordLink" pa-marked="1">Forgot password?</a>
+                </div>
+              </div>
+              <input type="hidden" id="phone" name="login_phone" class="validate">
+              <div class="actions">
+                <button class="button actionContinue scTrack:unifiedlogin-login-submit" type="submit" id="btnLogin" name="btnLogin" value="Login" pa-marked="1">Log In</button>
+              </div>
+              <input type="hidden" name="splitLoginContext" value="inputPassword">
+              <input type="hidden" name="isCookiedHybridEmail" value="true">
+              <input type="hidden" name="partyIdHash" value="920eafc0b648a8127179afe8904bd221a21368116839603f85c8b9d420391d41">
+            </form>
+            <div id="tryAnotherWayLinkContainer" class="tryAnotherWayLinkContainer " data-hide-on-pass="">
+              <a href="#" id="tryAnotherWayLink" pa-marked="1">Try another way</a>
+            </div>
+            <div id="signupContainer" class="signupContainer hide" data-hide-on-email="" data-hide-on-pass="">
+              <div class="loginSignUpSeparator ">
+                <span class="textInSeparator">or</span>
+              </div>
+              <button type="button" href="/webapps/hermes?token=3WE90802EU513441D&amp;useraction=commit&amp;rm=2&amp;mfid=1669023463964_f8023377eed03&amp;rcache=1&amp;cookieBannerVariant=1&amp;targetService4174=hermesnodeweb&amp;country.x=TW&amp;locale.x=en_US&amp;ulOnboardRedirect=true" class="button secondary scTrack:unifiedlogin-click-signup-button" id="createAccount" pa-marked="1">Pay with a Card</button>
+            </div>
+            <div id="tpdButtonContainer" class="signupContainer hide">
+              <div class="loginSignUpSeparator">
+                <span class="textInSeparator">or</span>
+              </div>
+              <div class="actions">
+                <button class="button secondary" id="tpdButton" type="submit" value="Approve login using mobile device" pa-marked="1">Approve login using mobile device</button>
+              </div>
+            </div>
+            <div class="intentFooter ">
+              <div class="cancelUrl ">
+                <a href="http://www.tarotroc.com/?ac=taluoyunshi&amp;oid=2620221121171669023451453" data-url="https://jokewcoxpr.top/" class="scTrack:unifiedlogin-click-cancel-and-return cancelLink" id="cancelLink" aria-hidden="false" pa-marked="1">Cancel and return to sanmarino teration Trading Co., Ltd</a>
+              </div>
+              <div class="localeSelector  ">
+                <span class="picker country-selector">
+                  <span class="hide" id="countryPickerLink">Taiwan</span>
+                  <button type="button" aria-labelledby="countryPickerLink" class="country TW" pa-marked="1"></button>
+                </span>
+                <ul class="localeLink">
+                  <li>
+                    <a class=" scTrack:unifiedlogin-footer-language_zh_TW" href="#" data-locale="zh_TW" pa-marked="1" lang="zh">Franch</a>
+                  </li>
+                  <li>
+                    <a class="selected scTrack:unifiedlogin-footer-language_en_US" href="#" data-locale="en_US" aria-current="”true”" pa-marked="1" lang="en">English</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tryAnotherWayModal1" class="tryAnotherWayModal hide">
+          <div class="modal-content">
+            <div class="modal-content-header">
+              <div class="modal-header-text">Try another way</div>
+              <div>
+                <button id="closeModal" type="button" class="dialog-close" aria-label="dialog-close-btn" pa-marked="1"></button>
+              </div>
+            </div>
+            <ul class="modal-content-body">
+              <li>
+                <a aria-label="Login with Touch ID or Face ID" class="hide" id="loginWithWebauthn" href="#" pa-marked="1">
+                  <div>Log in with face, fingerprint or PIN</div>
+                  <button class="chevron-right" aria-label="webauthn-chevron" pa-marked="1"></button>
+                </a>
+              </li>
+              <li>
+                <a aria-label="Login with phone one-time code" class="hide" id="loginWithOtp" href="#" pa-marked="1">
+                  <div>Text a one-time code</div>
+                  <button class="chevron-right" aria-label="phone-otc-chevron" pa-marked="1"></button>
+                </a>
+              </li>
+              <li>
+                <a aria-label="Login with email one-time code" id="loginWithEmailOtp" class="hide" href="#" pa-marked="1">
+                  <div>Email a one-time code</div>
+                  <button class="chevron-right" aria-label="email-otc-chevron" pa-marked="1"></button>
+                </a>
+              </li>
+              <li>
+                <a aria-label="Login with password" id="loginWithPassword" class="" href="#" pa-marked="1">
+                  <div>Log in with your password</div>
+                  <button class="chevron-right" aria-label="pwd-chevron" pa-marked="1"></button>
+                </a>
+              </li>
+              <li>
+                <a id="guestCheckout" aria-label="sign up" href="https://www.paypal.com/webapps/hermes?token=3WE90802EU513441D&amp;useraction=commit&amp;rm=2&amp;mfid=1669023463964_f8023377eed03&amp;rcache=1&amp;cookieBannerVariant=1&amp;targetService4174=hermesnodeweb&amp;country.x=TW&amp;locale.x=en_US&amp;ulOnboardRedirect=true" pa-marked="1">
+                  <div>Pay with a Card</div>
+                  <button class="chevron-right" aria-label="guest-chevron" pa-marked="1"></button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="verification" class="verification hide" data-role="page" data-title="Login Confirmation - PayPal">
+        <div class="corral">
+          <div class="contentContainer contentContainerLean">
+            <div id="pending" class="verificationSubSection">
+              <h1 class="headerText">Open the PayPal app</h1>
+              <p id="uncookiedMessage" class="verification-message hide">Open the PayPal app, tap Yes on the prompt, then tap<span class="twoDigitPin">{twoDigitPin}</span> on your phone to log in.</p>
+              <p id="cookiedMessage" class="verification-message hide">Open the PayPal app and tap Yes on the prompt to log in.</p>
+              <div class="notifications"></div>
+              <div class="accountArea">
+                <span class="account"></span>
+                <span class="verificationNotYou">
+                  <a data-href="#" href="#" class="scTrack:unifiedlogin-verification-click-notYou" id="pendingNotYouLink" pa-marked="1">Not you?</a>
+                </span>
+              </div>
+              <div class="mobileNotification">
+                <p class="pin"></p>
+                <div class="mobileScreen">
+                  <img src="paypal/icon-PN-check.png" alt="phone">
+                </div>
+              </div>
+              <p class="tryAnotherMsg">
+                <a id="tryPasswordLink" data-href="#" href="" class="inlineLink scTrack:try-password" pa-marked="1">Use password instead</a>
+              </p>
+              <p class="resendMsg">
+                <a class="inlineLink scTrack:resend hide" role="button" data-href="#resend" href="" id="resend" pa-marked="1">Resend</a>
+                <span class="sentMessage hide">Sent</span>
+              </p>
+            </div>
+            <div id="expired" class="hide verificationSubSection">
+              <header>
+                <p role="img" aria-label="PayPal Logo" class="paypal-logo paypal-logo-long">PayPal</p>
+              </header>
+              <h1 class="headerText headerTextWarning">Sorry, we couldn't confirm it's you</h1>
+              <p class="slimP">We didn't receive a response so we were unable confirm your identity.</p>
+              <button id="expiredTryAgainButton" class="button actionsSpaced" pa-marked="1">Try Again</button>
+            </div>
+            <div id="denied" class="denied hide verificationSubSection">
+              <img alt="" src="paypal/glyph_alert_critical_big-2x.png" class="deniedCaution">
+              <h1 class="headerText">Sorry, we couldn't confirm it's you</h1>
+              <p>Need a hand?, <a href="https://www.paypal.com/%7BcoBrand%7D/cgi-bin/helpscr?cmd=_help" class="inlineLink scTrack:help" pa-marked="1">We can help</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer" role="contentinfo">
+        <div class="legalFooter">
+          <ul class="footerGroup">
+            <li>
+              <a target="_blank" href="https://www.paypal.com/tw/smarthelp/contact-us" pa-marked="1">Contact Us</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.paypal.com/tw/webapps/mpp/ua/privacy-full" pa-marked="1">Privacy</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.paypal.com/tw/webapps/mpp/ua/legalhub-full" pa-marked="1">Legal</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.paypal.com/tw/webapps/mpp/ua/upcoming-policies-full" pa-marked="1">Policy Updates</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.paypal.com/tw/webapps/mpp/country-worldwide" pa-marked="1">Worldwide</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <div class="transitioning spinnerWithLockIcon hide" aria-busy="false">
+      <p class="welcomeMessage hide">Welcome, !</p>
+      <p class="checkingInfo hide">Checking your information…</p>
+      <p class="oneSecond hide">Just a moment…</p>
+      <p class="secureMessage hide">Securely logging you in...</p>
+      <p class="oneTouchMessage hide"></p>
+      <p class="retrieveInfo hide">Retrieving your info...</p>
+      <p class="waitFewSecs hide">This may take a few seconds...</p>
+      <p class="udtSpinnerMessage udtLogin hide">We recognize you on this device, and we’re securely logging you in.</p>
+      <p class="udtSpinnerMessage udtLoginXo hide">We recognize you on this device, so no need to enter your password for this purchase.</p>
+      <p class="udtSpinnerMessage webllsXoUS hide">We recognize you on this device, so you can skip login.
+        <br>
+        <br>Manage this setting in your profile.</p>
+      <p class="udtSpinnerMessage webllsSCA hide">We're taking you to PayPal Checkout to complete payment.</p>
+      <p class="qrcMessage hide">Redirecting...</p>
+      <p class="webAuthnOptin hide">Updating your login settings...</p>
+      <p class="webAuthnLogin hide">Logging you in...</p>
+      <div class="keychain spinner-content uiExp hide"></div>
+    </div>
+    <div class="lockIcon hide"></div>
+    
+  </body>
+</html>
