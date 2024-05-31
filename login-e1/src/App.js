@@ -1,19 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
-import LoginForm from './componentes/Login';
-import CrearUsuario from './componentes/CrearUsuario';
+
+import RSA from './pages/RSA';
+import XSS from './pages/XSS';
+import SQL from './pages/SQLinjection';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Iniciar Sesion</p>
-        <LoginForm></LoginForm>
-        <p>Crear cuenta</p>
-        <CrearUsuario></CrearUsuario>
-        
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <nav className="bg-blue-600 p-4">
+          <ul className="flex space-x-4">
+            <li>
+              <Link to="/" className="text-white hover:bg-blue-700 px-3 py-2 rounded">RSA</Link>
+            </li>
+            <li>
+              <Link to="/xss" className="text-white hover:bg-blue-700 px-3 py-2 rounded">XSS</Link>
+            </li>
+            <li>
+              <Link to="/sql" className="text-white hover:bg-blue-700 px-3 py-2 rounded">SQL</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<RSA />} />
+          <Route path="/xss" element={<XSS />} />
+          <Route path="/sql" element={<SQL />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -265,3 +265,9 @@ C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\ru
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\obj\Debug\net8.0\LoginAPI.sourcelink.json
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\Google.Apis.Calendar.v3.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\System.Management.dll
+C:\Users\ericG\Documents\SeguridadSoftware\LoginAPI\LoginAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
